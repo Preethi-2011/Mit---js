@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="whole-container">
+    <form action="#" id="forms">
+    
+        <h1>Add Contact</h1>
+
+        <label for="Name">Name</label>
+        <input type="text" id="name" placeholder="name">
+
+        <label for="Email">Email</label>
+        <input type="text" id="email">
+
+        <button onclick="output()" id="submit" aria-placeholder="email">Submit</button>
+        <div id="output">
+
+        </div>
+    </div>
+    <script>
+        
+        function output()
+        {
+         var name=document.getElementById("name").value;
+        var email=document.getElementById("email").value;   
+            let list=JSON.parse(localStorage.getItem("list"))||[];
+            if(name&&email){
+            list.push({
+              name:name,
+              email:email
+            });
+           let display=localStorage.setItem("list",JSON.stringify(list));
+          dis();
+        }
+      
+    
+        }
+        function dis()
+        {
+        //    if(name!=""&&email!="")
+        //    {
+        //     return `<div class="form-box">${name.}</div>`
+        //    }
+       
+          let list=JSON.parse(localStorage.getItem("list"))||[];
+          let detail=list.map((detail,array) =>{
+                  return `<div class="form-box">
+                    <p class="form-name">${detail.name}</p>
+                    <p class="form-email">${detail.email}</p>
+                    <button class="remove" onclick="deletelist(${array})">Delete</button>
+                    </div>`
+                    
+          } )
+        document.getElementById("output").innerHTML=detail.join("")
+    document.getElementById("name").value=""
+    document.getElementById("email").value=""
+        }
+
+        function deletelist(array)
+        {
+           let list=JSON.parse(localStorage.getItem("list"))||[];
+           list.splice(array,1);
+           localStorage.setItem("list",JSON.stringify(list))
+           dis();
+        } 
+    </script>
+    </form>
+</body>
+</html>

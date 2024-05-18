@@ -1,0 +1,39 @@
+*{
+    padding:0;
+    margin:0;
+}
+.whole-container{
+    display:flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+#forms{
+  display:flex;
+    flex-direction: column; 
+    margin-bottom: 20px;
+}
+#forms input{
+    margin-bottom: 20px;
+    width:600px;
+    height: 30px;
+    border-radius: 5px;
+}
+#submit{
+    width:100px;
+    background-color:blue;
+    height:20px
+}
+.form-box{
+    box-shadow: 1px 1px 10px 1px rgb(105, 143, 143);
+            margin: 40px 0px 20px 0px;
+            padding: 5px 20px;
+            background-color: aliceblue;
+       
+}
+.form-name{
+    font-weight: 700;
+}
+.form-name{
+    color:black
+}
